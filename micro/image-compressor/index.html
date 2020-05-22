@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Frontend Image Compressor</title>
+    <style type="text/css">
+      body {
+        font-family: Helvetica, Arial;
+      }
+      .container {
+        max-width: 640px;
+        width: 100%;
+        margin: auto;
+      }
+      #preview {
+        width: 100%;
+        height: auto;
+      }
+      img {
+        max-height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Frontend Image Compressor</h3>
+      <p>
+        Upload an image and watch the file size before and after.
+        <strong>Click on compressed image to download.</strong>
+      </p>
+      <div>
+        <input type="file" name="" id="upload" accept="image/*" multiple />
+      </div>
+      <div><p id="output"></p></div>
+    </div>
+
+    <script type="text/javascript" src="./filesize.min.js"></script>
+    <script type="text/javascript" src="./compress.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>

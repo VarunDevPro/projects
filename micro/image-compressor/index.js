@@ -10,6 +10,8 @@ upload.addEventListener(
   (evt) => {
     const files = [...evt.target.files];
     output.innerHTML = `Compressing ${files.length} files... Please wait`;
+    var t0 = performance.now();
+
     compress
       .compress(files, {
         size: 4, // the max size in MB, defaults to 2MB
@@ -37,11 +39,16 @@ upload.addEventListener(
   <b>Start Size:</b> ${filesize(initialSizeInMb * 1000000)} <br/>
   <b>End Size:</b> ${filesize(endSizeInMb * 1000000)} <br/>
   <b>Compression Cycles:</b> ${iterations} <br/>
-  <b>Size Reduced:</b> ${sizeReducedInPercent} % <br/>
+  <b>Size Reduced:</b> ${sizeReducedInPercent.toFixed(2)} % <br/>
   <b>File Name:</b> ${alt}
 </p>`;
         });
-        output.innerHTML = arr.join(" ");
+
+        var t1 = performance.now();
+        output.innerHTML =
+          `<b>Total time taken</b>: ${Math.round(
+            (t1 - t0) / 1000
+          )} seconds<br/><br/>` + arr.join(" ");
       });
   },
   false
